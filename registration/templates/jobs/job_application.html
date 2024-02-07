@@ -1,0 +1,92 @@
+<!-- jobs/templates/jobs/job_application.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="id_job_title">Job Title:</label>
+      {{ form.job_title }}
+
+      <label for="id_job_position">Job Position:</label>
+      {{ form.job_position }}
+
+      <label for="id_company_email">Company Email:</label>
+      {{ form.company_email }}
+
+      <label for="id_phone_number">Phone Number:</label>
+      {{ form.phone_number }}
+
+      <label for="id_skills">Skills:</label>
+      {{ form.skills }}
+
+      <label for="id_job_description">Job Description:</label>
+      {{ form.job_description }}
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function submitForm() {
+        // Check if the form is valid before submitting
+        if (document.getElementById("jobApplicationForm").checkValidity()) {
+          // Show alert message
+          alert("Application submitted successfully!");
+
+          // Submit the form
+          document.getElementById("jobApplicationForm").submit();
+        }
+      }
+    </script>
+  </body>
+</html>
