@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>job list</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional custom styles can be added here */
+    </style>
+  </head>
+  <body>
+    <div class="max-w-[1000px]">
+      <h1 class="text-center py-10">TOTLE JOB IN PORTAL: {{ jobs|length }}</h1>
+
+      {% if jobs %}
+      <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="py-2 px-4">Job Title</th>
+            <th class="py-2 px-4">Skills</th>
+            <th class="py-2 px-4">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in jobs %}
+          <tr>
+            <td class="py-2 px-4"><h3>{{ job.job_title }}</h3></td>
+            <td class="py-2 px-4">{{ job.skills }} {{job.id}}</td>
+            <td class="py-2 px-4">
+              <a href="{% url 'job_detail' job.id %}">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">
+                  Apply
+                </button>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No jobs available.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>job details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="p-10 text-center">
+      <h2 class="py-10">
+        The Job post Name: {{ job.job_title }}
+        <span
+          class="inline-block bg-blue-500 text-white px-2 py-1 rounded-full text-sm font-bold ml-2"
+        >
+          {{ job.id }}
+        </span>
+      </h2>
+      <ul class="list-none p-0 mb-6">
+        <li class="mb-2"><strong>Job Title:</strong> {{ job.job_title }}</li>
+        <li class="mb-2">
+          <strong>Job Position:</strong> {{ job.job_position }}
+        </li>
+        <li class="mb-2">
+          <strong>Company Email:</strong> {{ job.company_email }}
+        </li>
+        <li class="mb-2">
+          <strong>Phone Number:</strong> {{ job.phone_number }}
+        </li>
+        <li class="mb-2"><strong>Skills:</strong> {{ job.skills }}</li>
+        <li class="mb-2">
+          <strong>Job Description:</strong>
+          <p class="leading-loose mt-4">{{ job.job_description }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <a href="{% url 'apply_job'  %}">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded">Apply</button>
+      </a>
+    </div>
+  </body>
+</html>
